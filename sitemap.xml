@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zsaying.com/about/index.html</loc>
+    
+    <lastmod>2020-12-24T14:23:53.531Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zsaying.com/contact/index.html</loc>
+    
+    <lastmod>2020-12-24T14:21:24.263Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zsaying.com/tags/index.html</loc>
     
     <lastmod>2020-12-24T05:31:16.161Z</lastmod>
@@ -16,13 +30,6 @@
   </url>
   
   <url>
-    <loc>https://zsaying.com/contact/index.html</loc>
-    
-    <lastmod>2020-12-24T05:31:16.158Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zsaying.com/categories/index.html</loc>
     
     <lastmod>2020-12-24T05:31:16.157Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://zsaying.com/archives/index.html</loc>
     
     <lastmod>2020-12-24T05:31:16.155Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zsaying.com/about/index.html</loc>
-    
-    <lastmod>2020-12-24T05:31:16.154Z</lastmod>
     
   </url>
   
