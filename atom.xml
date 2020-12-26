@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="mixzeng.github.io/"/>
-  <updated>2020-12-24T05:31:16.149Z</updated>
+  <updated>2020-12-26T20:18:03.276Z</updated>
   <id>mixzeng.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>晶胞之间相互转换</title>
+    <link href="mixzeng.github.io/2020/12/27/crystal-cell-convert/"/>
+    <id>mixzeng.github.io/2020/12/27/crystal-cell-convert/</id>
+    <published>2020-12-26T19:11:53.000Z</published>
+    <updated>2020-12-26T20:18:03.276Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;固体物理中经常会涉及到两种晶胞的选取方式，一种叫primitive cell（原胞），另一种叫conventional cell（单胞，惯用晶胞）。有些工具已经帮我们实现了这两种晶胞的转换。&lt;/p&gt;
+&lt;h4 id=&quot;晶胞转换方法&quot;&gt;&lt;a href=&quot;#晶胞转换方法&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Crystal Tools" scheme="mixzeng.github.io/categories/Crystal-Tools/"/>
+    
+    
+      <category term="Python" scheme="mixzeng.github.io/tags/Python/"/>
+    
+      <category term="Cell" scheme="mixzeng.github.io/tags/Cell/"/>
+    
+  </entry>
   
   <entry>
     <title>十大经典排序算法整理汇总（附代码）</title>
