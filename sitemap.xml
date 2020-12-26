@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>mixzeng.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-12-26T05:12:16.146Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>mixzeng.github.io/friends/index.html</loc>
+    
+    <lastmod>2020-12-26T05:11:24.274Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>mixzeng.github.io/about/index.html</loc>
     
     <lastmod>2020-12-25T09:17:03.269Z</lastmod>
@@ -19,20 +33,6 @@
     <loc>mixzeng.github.io/contact/index.html</loc>
     
     <lastmod>2020-12-24T14:21:24.263Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>mixzeng.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-12-24T05:31:16.161Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>mixzeng.github.io/friends/index.html</loc>
-    
-    <lastmod>2020-12-24T05:31:16.159Z</lastmod>
     
   </url>
   

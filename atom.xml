@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>mixzeng blog</title>
+  <title>ZSaying</title>
   
-  <subtitle>Physics</subtitle>
+  <subtitle>ZSaying</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="mixzeng.github.io/"/>
@@ -10,7 +10,7 @@
   <id>mixzeng.github.io/</id>
   
   <author>
-    <name>mixzeng</name>
+    <name>ZSaying</name>
     
   </author>
   
