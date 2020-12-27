@@ -4,17 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="TDEP软件安装, DeepLearning Abinit Fortran Python">
+    <meta name="keywords" content="Alamode软件安装, DeepLearning Abinit Fortran Python">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="介绍使用intel编译器编译tdep。首先解压tdep软件包并进入根目录
-cd tdep/
+    <meta name="description" content="本文介绍使用Intel编译器安装Alamode软件。Intel编译器的版本为Intel-19。
+依赖库
 
-修改important_settings文件，参考如下。注意所有的库尽量使用同一版本编译器安装。
-
-#!/bin/bash
-# A central">
+C++ compiler (Intel compiler is recommended.)
+LAPACK library
+MPI li">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +21,7 @@ cd tdep/
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>TDEP软件安装 | ZSaying</title>
+    <title>Alamode软件安装 | ZSaying</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -336,13 +335,13 @@ cd tdep/
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        TDEP软件安装
+                        Alamode软件安装
                     </div>
                 </div>
             </div>
@@ -453,8 +452,8 @@ cd tdep/
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/TDEP/" target="_blank">
-                            <span class="chip bg-color">TDEP</span>
+                        <a href="/tags/Alamode/" target="_blank">
+                            <span class="chip bg-color">Alamode</span>
                         </a>
                         
                     </div>
@@ -491,14 +490,14 @@ cd tdep/
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    485
+                    216
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -514,88 +513,43 @@ cd tdep/
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>介绍使用intel编译器编译tdep。首先解压tdep软件包并进入根目录</p>
-<pre class="line-numbers language-shell"><code class="language-shell">cd tdep/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>本文介绍使用Intel编译器安装Alamode软件。Intel编译器的版本为<a href="https://software.intel.com/content/www/us/en/develop/articles/intel-c-compiler-190-for-linux-release-notes-for-intel-parallel-studio-xe-2019.html" target="_blank" rel="noopener">Intel-19</a>。</p>
+<h4 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h4><blockquote>
 <ul>
-<li>修改important_settings文件，参考如下。注意所有的库尽量使用同一版本编译器安装。</li>
+<li>C++ compiler (Intel compiler is recommended.)</li>
+<li>LAPACK library</li>
+<li>MPI library (OpenMPI, MPICH2, IntelMPI, etc.)</li>
+<li><a href="http://www.boost.org/" target="_blank" rel="noopener">Boost C++ library</a></li>
+<li>FFTW library</li>
+<li><a href="http://eigen.tuxfamily.org/" target="_blank" rel="noopener">Eigen3 library</a></li>
+<li><a href="https://atztogo.github.io/spglib/" target="_blank" rel="noopener">spglib</a></li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment" spellcheck="true"># A central place to put all the important paths. You probably have to modify this to make</span>
-<span class="token comment" spellcheck="true"># things work. This is an example for the BC cluster Pleiades. The modules I have loaded are</span>
-<span class="token comment" spellcheck="true"># intel/2017</span>
-<span class="token comment" spellcheck="true"># openmpi/2.1.0.intel2017</span>
-<span class="token comment" spellcheck="true"># with hdf5 compiled manually</span>
+</blockquote>
+<h4 id="安装库"><a href="#安装库" class="headerlink" title="安装库"></a>安装库</h4><h5 id="Boost-C"><a href="#Boost-C" class="headerlink" title="Boost C++"></a>Boost C++</h5><p>从官网下载后解压并把里面的boost文件夹放入到alamode根目录下的etc文件夹中。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cd alamode
+mkdir etc; cd etc
+(Download a source file and mv it to etc/)
+tar xf boost_x_yy_z.tar.bz2
+cd ../
+mkdir include;cd include
+ln -s ../etc/boost_x_yy_z/boost .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="Eigen3"><a href="#Eigen3" class="headerlink" title="Eigen3"></a>Eigen3</h5><p>使用同样的方法吧Eigen3里面的Eigen文件夹链接到include文件夹中。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">ln -s ../etc/eigen-eigen-*/Eigen .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="spglib"><a href="#spglib" class="headerlink" title="spglib"></a>spglib</h5><p>根据官网教程安装即可。</p>
+<h4 id="Alamode安装"><a href="#Alamode安装" class="headerlink" title="Alamode安装"></a>Alamode安装</h4><pre class="line-numbers language-shell"><code class="language-shell">cd alm/
+cp Makefile.linux Makefile
+(Edit Makefile here)
+make -j
 
-<span class="token comment" spellcheck="true"># Fortran compiler</span>
-FORTRAN_COMPILER<span class="token operator">=</span><span class="token string">"/public1/soft/intel/2019/compilers_and_libraries/linux/bin/intel64/ifort"</span>
-OPTIMIZATION_LEVEL<span class="token operator">=</span><span class="token string">"-O3 -xHost"</span>
-OPTIMIZATION_SENSITIVE<span class="token operator">=</span><span class="token string">"-O3 -xHost"</span>
-<span class="token comment" spellcheck="true"># flags for the fortran compiler to make it play nice.</span>
-FCFLAGS<span class="token operator">=</span><span class="token string">"-cpp -fpp -qopenmp -gen-interfaces -fPIC"</span>
-<span class="token comment" spellcheck="true">#FCFLAGS="-fpp -qopenmp"</span>
-FCFLAGS_EXTRA<span class="token operator">=</span><span class="token string">""</span>
-<span class="token comment" spellcheck="true">#FCFLAGS_EXTRA="-check bounds -check uninit -check pointers -check stack -traceback -g -fpe0 -init=snan,arrays -warn all -warn stderrors -stand f08 -diag-disable 5268 -diag-disable 7416"</span>
-MODULE_FLAG<span class="token operator">=</span><span class="token string">"-module"</span>
+cd ../anphon/
+cp Makefile.linux Makefile
+(Edit Makefile here)
+make -j
 
-<span class="token comment" spellcheck="true"># Precompiler flags. Selecting default gnuplot terminal, and makes the progressbars work.</span>
-PRECOMPILER_FLAGS<span class="token operator">=</span><span class="token string">"-DGP<span class="token variable">${GNUPLOTTERMINAL}</span> -Dgfortranprogressbar"</span> <span class="token comment" spellcheck="true"># for gfortran</span>
-
-<span class="token comment" spellcheck="true"># Which gnuplot terminal to use by default.</span>
-<span class="token comment" spellcheck="true">#GNUPLOTTERMINAL="aqua"  # nice on OSX, needs aquaterm installed and gnuplot compiled with support for it.</span>
-<span class="token comment" spellcheck="true">#GNUPLOTTERMINAL="wxt"  # nice on linux.</span>
-GNUPLOTTERMINAL<span class="token operator">=</span><span class="token string">"wxt"</span>  <span class="token comment" spellcheck="true"># fallback that works but looks kind of bad</span>
-<span class="token comment" spellcheck="true"># the header to put in python scripts.</span>
-PYTHONHEADER<span class="token operator">=</span><span class="token string">"#!/usr/bin/python"</span>
-
-<span class="token comment" spellcheck="true"># These are the BLAS/LAPACK libraries. On OSX with gfortran, use the built-in</span>
-<span class="token comment" spellcheck="true"># where you just specify -framework accelerate and everything works. WIth some other</span>
-<span class="token comment" spellcheck="true"># compiler on another system, you have to specifiy the paths manually. There are some</span>
-<span class="token comment" spellcheck="true"># examples here.</span>
-MKLROOT<span class="token operator">=</span><span class="token string">"/public1/soft/intel/2019/compilers_and_libraries/linux/mkl"</span>
-PATH_TO_BLASLAPACK_LIB<span class="token operator">=</span><span class="token string">"-L<span class="token variable">${MKLROOT}</span>/lib/intel64"</span>
-PATH_TO_BLASLAPACK_INC<span class="token operator">=</span><span class="token string">"-I<span class="token variable">${MKLROOT}</span>/include"</span>
-BLASLAPACK_LIBS<span class="token operator">=</span><span class="token string">"-lpthread -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -lmkl_blas95_lp64 -lmkl_lapack95_lp64"</span>
-
-<span class="token comment" spellcheck="true"># For the autocorrelation code, I use fast Fourier transforms. fftw needs to be installed and</span>
-<span class="token comment" spellcheck="true"># linked. This is where homebrew installed mine on osx</span>
-PATH_TO_FFTW_LIB<span class="token operator">=</span><span class="token string">""</span>
-PATH_TO_FFTW_INC<span class="token operator">=</span><span class="token string">"-I<span class="token variable">${MKLROOT}</span>/include/fftw"</span>
-FFTW_LIBS<span class="token operator">=</span><span class="token string">""</span>
-
-<span class="token comment" spellcheck="true"># The thermal conductivity is MPI parallel. Then you need an mpi installation. This one points to</span>
-<span class="token comment" spellcheck="true"># openmpi installed by homebrew in it's default location</span>
-PATH_TO_MPI_LIB<span class="token operator">=</span><span class="token string">"-L/public1/soft/openmpi/4.0.1-pmi2-icc19/lib"</span>
-PATH_TO_MPI_INC<span class="token operator">=</span><span class="token string">"-I/public1/soft/openmpi/4.0.1-pmi2-icc19/include"</span>
-MPI_LIBS<span class="token operator">=</span><span class="token string">"-lmpi -lmpi_mpifh"</span>
-
-<span class="token comment" spellcheck="true"># HDF5 is now needed</span>
-PATH_TO_HDF5_LIB<span class="token operator">=</span><span class="token string">"-L/public1/soft/hdf5/1.12.0-icc19/lib"</span>
-PATH_TO_HDF5_INC<span class="token operator">=</span><span class="token string">"-I/public1/soft/hdf5/1.12.0-icc19/include"</span>
-HDF5_LIBS<span class="token operator">=</span><span class="token string">"-lhdf5 -lhdf5_fortran"</span>
-<span class="token comment" spellcheck="true"># Optional things, now disabled</span>
-USEAIMS<span class="token operator">=</span><span class="token string">"no"</span>
-
-<span class="token comment" spellcheck="true"># Now I also need a C-compiler</span>
-C_COMPILER<span class="token operator">=</span><span class="token string">"icc"</span>
-C_FLAGS<span class="token operator">=</span><span class="token string">""</span>
-
-<span class="token comment" spellcheck="true">#PATH_TO_AIMS_LIB="-L/home/hellmano/software/aims/lib"</span>
-<span class="token comment" spellcheck="true">#PATH_TO_AIMS_INC="-I/home/hellmano/software/aims/src"</span>
-<span class="token comment" spellcheck="true"># also add the ScaLAPACK libs here</span>
-<span class="token comment" spellcheck="true">#AIMS_LIBS="-laims.171013.mpi"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>执行安装命令</li>
-</ul>
-<pre class="line-numbers language-shell"><code class="language-shell">bash build_things.sh  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>修改环境变量</li>
-</ul>
-<pre class="line-numbers language-shell"><code class="language-shell">vim ~/.bashrc
-MANPATH=$MANPATH:/home/***/software/tdep/man
-PATH=$PATH:/home/***/software/tdep/bin
-export MANPATH
-export PATH
-alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+cd ../tools/
+(Edit Makefile here)
+make -j<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意gcc和ifort（&gt;15）的版本不能太低。在centos6.5下，应该安装一个gcc&gt;=4.85的库再进行安装。</p>
 
             </div>
             <hr />
@@ -754,9 +708,9 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《TDEP软件安装》
+                    《Alamode软件安装》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/12/27/tdep-install/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/12/27/alamode-install/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ZSaying
             </a> 采用
@@ -797,7 +751,7 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
         repo: 'mixzeng.github.io',
         owner: 'mixzeng',
         admin: "mixzeng",
-        id: '2020/12/27/tdep-install/',
+        id: '2020/12/27/alamode-install/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -818,9 +772,10 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/27/alamode-install/">
                     <div class="card-image">
@@ -838,9 +793,9 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -853,6 +808,7 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -871,19 +827,19 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/27/crystal-cell-convert/">
+                <a href="/2020/12/27/tdep-install/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="晶胞之间相互转换">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="TDEP软件安装">
                         
-                        <span class="card-title">晶胞之间相互转换</span>
+                        <span class="card-title">TDEP软件安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了晶胞primitive cell和conventional cell之间的转换方法。
+                            介绍安装TDEP软件。
                         
                     </div>
                     <div class="publish-info">
@@ -894,8 +850,8 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Crystal-Tools/" class="post-category" target="_blank">
-                                    Crystal Tools
+                            <a href="/categories/Software-Install/" class="post-category" target="_blank">
+                                    Software Install
                                 </a>
                             
                             
@@ -905,12 +861,8 @@ alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-row
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/Crystal-Cell/" target="_blank">
-                        <span class="chip bg-color">Crystal Cell</span>
+                    <a href="/tags/TDEP/" target="_blank">
+                        <span class="chip bg-color">TDEP</span>
                     </a>
                     
                 </div>

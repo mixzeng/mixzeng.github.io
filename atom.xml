@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="mixzeng.github.io/"/>
-  <updated>2020-12-27T06:48:28.412Z</updated>
+  <updated>2020-12-27T08:29:47.139Z</updated>
   <id>mixzeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Alamode软件安装</title>
+    <link href="mixzeng.github.io/2020/12/27/alamode-install/"/>
+    <id>mixzeng.github.io/2020/12/27/alamode-install/</id>
+    <published>2020-12-27T08:07:41.000Z</published>
+    <updated>2020-12-27T08:29:47.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文介绍使用Intel编译器安装Alamode软件。Intel编译器的版本为&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Software Install" scheme="mixzeng.github.io/categories/Software-Install/"/>
+    
+    
+      <category term="Alamode" scheme="mixzeng.github.io/tags/Alamode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TDEP软件安装</title>
     <link href="mixzeng.github.io/2020/12/27/tdep-install/"/>
     <id>mixzeng.github.io/2020/12/27/tdep-install/</id>
     <published>2020-12-27T06:29:46.000Z</published>
-    <updated>2020-12-27T06:48:28.412Z</updated>
+    <updated>2020-12-27T07:24:16.654Z</updated>
     
     <summary type="html">
     
@@ -69,38 +95,6 @@
       <category term="Python" scheme="mixzeng.github.io/tags/Python/"/>
     
       <category term="Crystal Cell" scheme="mixzeng.github.io/tags/Crystal-Cell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>十大经典排序算法整理汇总（附代码）</title>
-    <link href="mixzeng.github.io/2020/02/16/sort-algorithms/"/>
-    <id>mixzeng.github.io/2020/02/16/sort-algorithms/</id>
-    <published>2020-02-16T07:09:23.000Z</published>
-    <updated>2020-12-24T05:31:16.149Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;关注公众号【算法码上来】，每日算法干货马上就来！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/medias/contact.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程算法" scheme="mixzeng.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="leetcode" scheme="mixzeng.github.io/tags/leetcode/"/>
-    
-      <category term="算法" scheme="mixzeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
