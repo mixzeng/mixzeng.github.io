@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="mixzeng.github.io/"/>
-  <updated>2020-12-27T06:07:43.879Z</updated>
+  <updated>2020-12-27T06:39:46.173Z</updated>
   <id>mixzeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tdep_install</title>
+    <link href="mixzeng.github.io/2020/12/27/tdep-install/"/>
+    <id>mixzeng.github.io/2020/12/27/tdep-install/</id>
+    <published>2020-12-27T06:29:46.000Z</published>
+    <updated>2020-12-27T06:39:46.173Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;介绍使用intel编译器编译tdep。首先解压tdep软件包并进入根目录&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;cd tdep/&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Software Install" scheme="mixzeng.github.io/categories/Software-Install/"/>
+    
+    
+      <category term="TDEP" scheme="mixzeng.github.io/tags/TDEP/"/>
+    
+  </entry>
   
   <entry>
     <title>晶胞之间相互转换</title>
