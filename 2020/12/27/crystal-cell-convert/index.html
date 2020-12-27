@@ -493,7 +493,7 @@ Avo">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    917
+                    918
                 </div>
                 
 
@@ -527,8 +527,9 @@ Avo">
 </blockquote>
 <h5 id="phonopy晶胞转换"><a href="#phonopy晶胞转换" class="headerlink" title="phonopy晶胞转换"></a>phonopy晶胞转换</h5><pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>phonopy判断的阈值比较小，有时候可以设置大一点</p>
-<pre><code>phonopy --symmetry --tolerance=1.0e-3 POSCAR</code></pre><p>POSCAR是VASP输入格式的晶胞。执行命令后会生成BPOSCAR（conventional cell）和PPOSCAR（primitive cell）。</p>
-<h5 id="Avogadro晶胞转换"><a href="#Avogadro晶胞转换" class="headerlink" title="Avogadro晶胞转换"></a>Avogadro晶胞转换</h5><p>安装后导入结构，执行Crystallography -&gt;Reduce-&gt;Reduce Cell(primitive cell)，当然，有时候也要设置阈值 Crystallography -&gt;Settings-&gt;Tolerance for symmetry operations</p>
+<pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry --tolerance=1.0e-3 POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>POSCAR是VASP输入格式的晶胞。执行命令后会生成BPOSCAR（conventional cell）和PPOSCAR（primitive cell）。</p>
+<h5 id="Avogadro晶胞转换"><a href="#Avogadro晶胞转换" class="headerlink" title="Avogadro晶胞转换"></a>Avogadro晶胞转换</h5><p>安装后导入结构，执行<strong>Crystallography -&gt;Reduce-&gt;Reduce Cell(primitive cell)</strong>，当然，有时候也要设置阈值 <strong>Crystallography -&gt;Settings-&gt;Tolerance for symmetry operations</strong>。</p>
 <h5 id="QEtoolkit"><a href="#QEtoolkit" class="headerlink" title="QEtoolkit"></a>QEtoolkit</h5><p>这个网页集成的功能基于spglib的，当然前面的phonopy也是。</p>
 <h5 id="Spglib库使用"><a href="#Spglib库使用" class="headerlink" title="Spglib库使用"></a>Spglib库使用</h5><p>下面介绍怎么用spglib库的功能实现晶胞转换。</p>
 <ul>
@@ -536,8 +537,7 @@ Avo">
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> os
 <span class="token keyword">import</span> linecache
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <p>class read_poscar(object):<br>    def <strong>init</strong>(<br>        self,<br>        struct=None,<br>        pos_name=None,<br>        lattice_index=None,<br>        lat=None,<br>        lat_recell=None,<br>        atomname=None,<br>        atomnum=None,<br>        postype=None,<br>        pos=None,<br>        spg_number=None,<br>    ):<br>        self.struct = linecache.getlines(“POSCAR”)<br>        # read POSCAR to get some paramatrics: sys_name; lattice; atom_name; atom_number; atom_position<br>        # and get spacegroup_number<br>        poscar = [line.strip() for line in self.struct]<br>        num = len(poscar)<br><br>        self.pos_name = poscar[0].split()<br>        self.lat_index = poscar[1].split()<br>        self.lattice_index = float(self.lat_index[0])<br><br>        # matrics of lattice vector<br><br>        lat_vector = np.zeros((3, 3))<br>        index = 0<br>        for latt in poscar[2:5]:<br>            latt = latt.split()<br>            lat_vector[index, :] = latt[0:3]<br>            index += 1<br>        self.lattice = lat_vector<br><br>        self.atomname = poscar[5].split()<br>        self.atomnum = poscar[6].split()<br>        self.postype = poscar[7].split()<br><br>        atom_len=len(self.atomname)<br><br>        # matrics of atom position<br><br>        i = num - 8<br>        position_vector = np.zeros((i, 3))<br>        index = 0<br>        for poss in poscar[8:num]:<br>            poss = poss.split()<br>            #position_vector[index, 0:3] = poss[0:3]<br>            position_vector[index,0] = poss[0]<br>            position_vector[index,1] = poss[1]<br>            position_vector[index,2] = poss[2]<br>            index += 1<br><br>        self.lat = lat_vector <em> self.lattice_index<br>        self.pos = position_vector<br>        atom_numbers = [1,] </em> (int(self.atomnum[0]))#+int(self.atomnum[1]))<br>        cell = (self.lat, self.pos, atom_numbers)<br>        database = spglib.get_symmetry_dataset(<br>            cell, symprec=1e-3<br>        )<br>        self.spg_number = database[“number”]<br><br>    def system_name(self):<br>        return self.pos_name<br><br>    def latt_index(self):<br>        return self.lattice_index<br><br>    def latti(self):<br>        return self.lattice<br><br>    def atom_name(self):<br>        return self.atomname<br><br>    def atom_number(self):<br>        return self.atomnum<br><br>    def position_type(self):<br>        return self.postype<br><br>    def positions(self):<br>        return self.pos<br><br>    def spacegroup_num(self):<br>        return self.spg_number</p>
@@ -547,7 +547,6 @@ import os
 import numpy as np
 import read_poscar as readpos
 import spglib
-
 
 class recell(object):
     def __init__(
