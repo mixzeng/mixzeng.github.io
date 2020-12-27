@@ -493,7 +493,7 @@ Avo">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    881
+                    897
                 </div>
                 
 
@@ -523,6 +523,7 @@ Avo">
 <li>Avogadro内置功能；</li>
 <li>Spglib库；</li>
 <li><a href="http://www.densityflow.com/" target="_blank" rel="noopener">QEtoolkit</a>;</li>
+<li><a href="http://materials.duke.edu/awrapper.html" target="_blank" rel="noopener">AFLOW在线功能</a></li>
 </ul>
 </blockquote>
 <h4 id="phonopy晶胞转换"><a href="#phonopy晶胞转换" class="headerlink" title="phonopy晶胞转换"></a>phonopy晶胞转换</h4><pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -531,6 +532,7 @@ Avo">
 <p>POSCAR是VASP输入格式的晶胞。执行命令后会生成BPOSCAR（conventional cell）和PPOSCAR（primitive cell）。</p>
 <h4 id="Avogadro晶胞转换"><a href="#Avogadro晶胞转换" class="headerlink" title="Avogadro晶胞转换"></a>Avogadro晶胞转换</h4><p>安装后导入结构，执行<strong>Crystallography -&gt;Reduce-&gt;Reduce Cell(primitive cell)</strong>，当然，有时候也要设置阈值 <strong>Crystallography -&gt;Settings-&gt;Tolerance for symmetry operations</strong>。</p>
 <h4 id="QEtoolkit"><a href="#QEtoolkit" class="headerlink" title="QEtoolkit"></a>QEtoolkit</h4><p>这个网页集成的功能基于spglib的，当然前面的phonopy也是。</p>
+<h4 id="AFLOW"><a href="#AFLOW" class="headerlink" title="AFLOW"></a>AFLOW</h4><p>这个网站功能比较强大。</p>
 <h4 id="Spglib库使用"><a href="#Spglib库使用" class="headerlink" title="Spglib库使用"></a>Spglib库使用</h4><p>下面介绍怎么用spglib库的功能实现晶胞转换。<br>首先是读取结构文件（read_poscar.py）</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> spglib
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
