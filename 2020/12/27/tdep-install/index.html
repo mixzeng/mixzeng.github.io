@@ -10,9 +10,11 @@
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="介绍使用intel编译器编译tdep。首先解压tdep软件包并进入根目录
 cd tdep/
+
 修改important_settings文件，参考如下
+
 #!/bin/bash
-# A central place to put all the i">
+# A central place to put all the">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,7 +491,7 @@ cd tdep/
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    438
+                    466
                 </div>
                 
 
@@ -514,7 +516,9 @@ cd tdep/
             <div id="articleContent">
                 <p>介绍使用intel编译器编译tdep。首先解压tdep软件包并进入根目录</p>
 <pre class="line-numbers language-shell"><code class="language-shell">cd tdep/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>修改important_settings文件，参考如下</p>
+<ul>
+<li>修改important_settings文件，参考如下</li>
+</ul>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 <span class="token comment" spellcheck="true"># A central place to put all the important paths. You probably have to modify this to make</span>
 <span class="token comment" spellcheck="true"># things work. This is an example for the BC cluster Pleiades. The modules I have loaded are</span>
@@ -579,8 +583,19 @@ C_FLAGS<span class="token operator">=</span><span class="token string">""</span>
 <span class="token comment" spellcheck="true">#PATH_TO_AIMS_INC="-I/home/hellmano/software/aims/src"</span>
 <span class="token comment" spellcheck="true"># also add the ScaLAPACK libs here</span>
 <span class="token comment" spellcheck="true">#AIMS_LIBS="-laims.171013.mpi"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>执行安装命令</p>
+<ul>
+<li>执行安装命令</li>
+</ul>
 <pre class="line-numbers language-shell"><code class="language-shell">bash build_things.sh  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>修改环境变量</li>
+</ul>
+<pre class="line-numbers language-shell"><code class="language-shell">vim ~/.bashrc
+MANPATH=$MANPATH:/home/***/software/tdep/man
+PATH=$PATH:/home/***/software/tdep/bin
+export MANPATH
+export PATH
+alias gnuplot='gnuplot -persist'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
