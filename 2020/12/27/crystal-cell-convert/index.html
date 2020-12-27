@@ -517,7 +517,7 @@ Avo">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>固体物理中经常会涉及到两种晶胞的选取方式，一种叫primitive cell（原胞），另一种叫conventional cell（单胞，惯用晶胞）。有些工具已经帮我们实现了这两种晶胞的转换。</p>
-<h4 id="晶胞转换方法"><a href="#晶胞转换方法" class="headerlink" title="晶胞转换方法"></a>晶胞转换方法</h4><blockquote>
+<h3 id="晶胞转换方法"><a href="#晶胞转换方法" class="headerlink" title="晶胞转换方法"></a>晶胞转换方法</h3><blockquote>
 <ul>
 <li>phonopy内置功能；</li>
 <li>Avogadro内置功能；</li>
@@ -525,13 +525,13 @@ Avo">
 <li><a href="http://www.densityflow.com/" target="_blank" rel="noopener">QEtoolkit</a>;</li>
 </ul>
 </blockquote>
-<h5 id="phonopy晶胞转换"><a href="#phonopy晶胞转换" class="headerlink" title="phonopy晶胞转换"></a>phonopy晶胞转换</h5><pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="phonopy晶胞转换"><a href="#phonopy晶胞转换" class="headerlink" title="phonopy晶胞转换"></a>phonopy晶胞转换</h4><pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>phonopy判断的阈值比较小，有时候可以设置大一点</p>
 <pre class="line-numbers language-shell"><code class="language-shell">phonopy --symmetry --tolerance=1.0e-3 POSCAR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>POSCAR是VASP输入格式的晶胞。执行命令后会生成BPOSCAR（conventional cell）和PPOSCAR（primitive cell）。</p>
-<h5 id="Avogadro晶胞转换"><a href="#Avogadro晶胞转换" class="headerlink" title="Avogadro晶胞转换"></a>Avogadro晶胞转换</h5><p>安装后导入结构，执行<strong>Crystallography -&gt;Reduce-&gt;Reduce Cell(primitive cell)</strong>，当然，有时候也要设置阈值 <strong>Crystallography -&gt;Settings-&gt;Tolerance for symmetry operations</strong>。</p>
-<h5 id="QEtoolkit"><a href="#QEtoolkit" class="headerlink" title="QEtoolkit"></a>QEtoolkit</h5><p>这个网页集成的功能基于spglib的，当然前面的phonopy也是。</p>
-<h5 id="Spglib库使用"><a href="#Spglib库使用" class="headerlink" title="Spglib库使用"></a>Spglib库使用</h5><p>下面介绍怎么用spglib库的功能实现晶胞转换。<br>首先是读取结构文件（read_poscar.py）</p>
+<h4 id="Avogadro晶胞转换"><a href="#Avogadro晶胞转换" class="headerlink" title="Avogadro晶胞转换"></a>Avogadro晶胞转换</h4><p>安装后导入结构，执行<strong>Crystallography -&gt;Reduce-&gt;Reduce Cell(primitive cell)</strong>，当然，有时候也要设置阈值 <strong>Crystallography -&gt;Settings-&gt;Tolerance for symmetry operations</strong>。</p>
+<h4 id="QEtoolkit"><a href="#QEtoolkit" class="headerlink" title="QEtoolkit"></a>QEtoolkit</h4><p>这个网页集成的功能基于spglib的，当然前面的phonopy也是。</p>
+<h4 id="Spglib库使用"><a href="#Spglib库使用" class="headerlink" title="Spglib库使用"></a>Spglib库使用</h4><p>下面介绍怎么用spglib库的功能实现晶胞转换。<br>首先是读取结构文件（read_poscar.py）</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> spglib
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> os
